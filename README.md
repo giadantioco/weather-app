@@ -1,23 +1,36 @@
-#Weather App
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-<p>This is a simlpe weather app created for a school project. It allows user to search the current weather conditions for different cities.</p>
+## Getting Started
 
-<p>
-  FEATURES: <br>
-  - Current weather: view temperature, description, wind speed and humidity for the city you are searching <br>
-  - Dynamic background: the background changes based on the time of the day <br>
-  - City selection: choose a city from a dropdown menu (just for cities in Milan county state) <br>
-  - City selection: chhose a city from anywhere in the world form the input menu (be careful, time will not work!) <br>
-  - Geolocation: fetch weather based on your location <br>
-</p>
+First, run the development server:
 
-<p>
-  Iteresting Facts <br>
-  I started by thinking the logic of the app and I developed the display only after: such a mistake! I did not know how much logic I could have added and I had no clue about the style yet. <br>
-  I still would like to implement the filtered search by adding the API with altitude, longitude and country code because I runned out of time [go to openweater API](https://openweathermap.org/api/geocoding-api) <br>
-  My script.js file is very messy, sorry. <br>
-  The thing I troubled the most with has been the CSS of the search button (the gray one with the magnifier) <br> 
-  The day before the deadline I didn't realise I had internet down and I thounght I broke the app :joy:
-</p>
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<p>Thankyou for watching. Please feel free to fork the repo and make the changes you'd like! </p>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
