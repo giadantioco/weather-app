@@ -1,0 +1,15 @@
+.container {
+  padding: 30px auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: aqua;
+
+  .dateTime {
+    text-align: right;
+  }
+}
+@media only screen and (min-width: 390px) {
+}
