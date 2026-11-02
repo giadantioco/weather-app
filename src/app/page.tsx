@@ -1,10 +1,11 @@
 import Header from "./components/Header/Header";
+import CitySelector from "./components/CitySelector/CitySelector";
 
 export default function Home() {
   return (
     <>
-      <Header></Header>
-      <h1>Main</h1>
+      <Header />
+      <CitySelector />
     </>
   );
 }
