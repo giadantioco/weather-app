@@ -6,12 +6,17 @@ export default function CitySelector() {
   return (
     <section className={style.container}>
       <select className={style.citySelect}>
+        <option value="">Please choose a city</option>
         {cities.map((city) => (
           <option key={city.value} value={city.value}>
             {city.name}
           </option>
         ))}
       </select>
+      <button type="button" className={style.geolocation}>
+        Use your location
+        <Image src={"/icons/geolocation.svg"} width={20} height={20} alt="" />
+      </button>
       <form className={style.formContainer}>
         <label htmlFor="city-input">Search a city</label>
         <input
@@ -23,7 +28,7 @@ export default function CitySelector() {
           title="Please insert a valid input"
         />
         <button type="submit" className={style.submitBtn}>
-          <Image src={"/search.svg"} width={20} height={20} alt="search" />
+          <Image src={"/icons/search.svg"} width={20} height={20} alt="" />
         </button>
       </form>
     </section>
