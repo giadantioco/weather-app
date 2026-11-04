@@ -1,0 +1,64 @@
+@use "sass:map";
+@use "mixins" as *;
+@use "variables" as *;
+
+$time-backgrounds: (
+  morning: (
+    color: $color-morning,
+    image: "/background/morning.svg",
+  ),
+  afternoon: (
+    color: $color-afternoon,
+    image: "/background/afternoon.svg",
+  ),
+  evening: (
+    color: $color-evening,
+    image: "/background/evening.svg",
+  ),
+  night: (
+    color: $color-night,
+    image: "/background/night.svg",
+  ),
+);
+
+@each $slot, $values in $time-backgrounds {
+  .#{$slot} {
+    background-color: map.get($values, color);
+    background-image: url(map.get($values, image));
+  }
+}
+
+.background {
+  width: 100%;
+  min-height: 100dvh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.appContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+
+  @include breakpoint-desktop {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-content: center;
+    align-items: start;
+    gap: 40px;
+  }
+}
