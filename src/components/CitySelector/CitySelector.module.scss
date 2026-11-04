@@ -1,54 +1,79 @@
+@use "variables" as *;
+
+$field-height: 48px;
+
 .container {
-  background-color: pink;
   margin: 30px auto;
   width: 80vw;
-  max-width: 500px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: $color-surface;
+  border-radius: 25px;
+  padding: 20px;
+}
 
-  .citySelect {
-    height: 7vh;
-    border-radius: 25px;
-    padding: 0 20px;
-    border: none;
-    background-color: white;
+// stile comune a select, bottone e input
+.citySelect,
+.geolocation,
+.cityInput {
+  height: $field-height;
+  border-radius: 25px;
+  padding: 0 20px;
+  border: none;
+  background-color: white;
+  font: inherit;
+}
+
+.citySelect {
+  appearance: none;
+  background-image: url("/icons/arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px;
+  padding-right: 44px; // spazio per la freccia
+}
+
+.geolocation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cityInput {
+  flex: 1; // prende tutto lo spazio rimasto accanto al bottone
+
+  &::placeholder {
+    color: lightgray;
   }
+}
 
-  .geolocation {
-    height: 7vh;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    border: none;
-    background-color: white;
-  }
+.submitBtn {
+  width: $field-height;
+  height: $field-height;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: gray;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
-  .formContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .cityInput {
-      height: 7vh;
-      border-radius: 25px;
-      width: 80%;
-      padding: 0 20px;
-      border: none;
-    }
-
-    .submitBtn {
-      width: 50px;
-      height: 7vh;
-      border-radius: 50px;
-      padding: 13px;
-      background-color: gray;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

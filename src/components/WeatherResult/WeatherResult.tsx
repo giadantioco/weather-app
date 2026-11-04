@@ -7,32 +7,30 @@ export default function WeatherResult({ weather }: { weather: WeatherData }) {
   return (
     <div className={style.container}>
       <div className={style.weatherResult}>
+        <p>{weather.dateTime}</p>
         <h2>{weather.cityName}</h2>
-        <div>
-          <Image src={"/icons/error.svg"} width={150} height={100} alt="" />
-          <p>{weather.dateTime}</p>
-          <div className={style.description}>
-            <p>{weather.description}</p>
-          </div>
+        <div className={style.description}>
+          <p>{weather.description}</p>
+          <Image src={"/icons/error.svg"} width={120} height={100} alt="" />
         </div>
       </div>
       <div className={style.extraResult}>
         <WeatherStat
           icon="/icons/temperature.svg"
-          label="Temperature:"
+          label="Temperature"
           value={weather.temperature}
           unit="°C"
         />
         <WeatherStat
           icon="/icons/humidity.svg"
-          label="Humidity:"
+          label="Humidity"
           value={weather.humidity}
           unit="%"
         />
 
         <WeatherStat
           icon="/icons/wind.svg"
-          label="Wind:"
+          label="Wind"
           value={weather.wind}
           unit="km/h"
         />

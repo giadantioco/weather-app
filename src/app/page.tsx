@@ -5,7 +5,7 @@ import { WeatherData } from "@/types/weather";
 
 const fakeWeather: WeatherData = {
   cityName: "Milano",
-  dateTime: "Martedì 3 Novembre 2026, 13.20",
+  dateTime: "04/11/2026, 13.20",
   description: "Windy, Clear",
   temperature: 16,
   wind: 4,
