@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .container {
   width: 80vw;
   max-width: 500px;
@@ -39,5 +41,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@include breakpoint-tablet {
+  .container {
+    width: 80vw;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
