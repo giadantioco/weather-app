@@ -1,1 +1,1 @@
-import { cities } from "../src/data/cities";
+import cities from "@data/cities.js";

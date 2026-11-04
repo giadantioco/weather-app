@@ -1,4 +1,4 @@
-import { cities } from "@/data/cities";
+import cities from "@/data/cities.json";
 import style from "./CitySelector.module.scss";
 import Image from "next/image";
 
