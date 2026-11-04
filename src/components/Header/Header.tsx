@@ -3,9 +3,10 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className={style.container}>
-      <Image src="/logo.png" alt="weather-app" width={160} height={75} />
-      <div className={style.dateTime}></div>
+    <header className={style.header}>
+      <h1 className={style.title}>
+        <Image src="/logo.png" alt="Weather App" width={75} height={35} />
+      </h1>
     </header>
   );
 }

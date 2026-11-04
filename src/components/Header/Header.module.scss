@@ -1,15 +1,8 @@
-.container {
-  padding: 30px auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 15px;
-  background-color: aqua;
-
-  .dateTime {
-    text-align: right;
-  }
+.header {
+  padding: 15px 0;
+  margin-bottom: 20px;
 }
-@media only screen and (min-width: 390px) {
+
+.title {
+  line-height: 0;
 }

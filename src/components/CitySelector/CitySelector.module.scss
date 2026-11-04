@@ -3,7 +3,7 @@
 $field-height: 48px;
 
 .container {
-  margin: 30px auto;
+  margin: 0 auto;
   width: 80vw;
   max-width: 400px;
   display: flex;
@@ -14,7 +14,6 @@ $field-height: 48px;
   padding: 20px;
 }
 
-// stile comune a select, bottone e input
 .citySelect,
 .geolocation,
 .cityInput {
@@ -32,7 +31,7 @@ $field-height: 48px;
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: 12px;
-  padding-right: 44px; // spazio per la freccia
+  padding-right: 44px;
 }
 
 .geolocation {
@@ -49,8 +48,7 @@ $field-height: 48px;
 }
 
 .cityInput {
-  flex: 1; // prende tutto lo spazio rimasto accanto al bottone
-
+  flex: 1;
   &::placeholder {
     color: lightgray;
   }
