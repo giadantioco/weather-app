@@ -3,6 +3,7 @@ import CitySelector from "@/components/CitySelector/CitySelector";
 import WeatherResult from "@/components/WeatherResult/WeatherResult";
 import { WeatherData } from "@/types/weather";
 import style from "./WeatherApp.module.scss";
+import { getTimeSlot } from "@/lib/time/getTimeSlot";
 
 const fakeWeather: WeatherData = {
   cityName: "Milano",
@@ -13,14 +14,18 @@ const fakeWeather: WeatherData = {
   humidity: 46,
 };
 
+const timeSlot = getTimeSlot(15);
+
 export default function WeatherApp() {
   return (
-    <div className={style.appContainer}>
-      <Header />
-      <main className={style.main}>
-        <CitySelector />
-        <WeatherResult weather={fakeWeather} />
-      </main>
+    <div className={`${style.background} ${style[timeSlot]}`}>
+      <div className={style.appContainer}>
+        <Header />
+        <main className={style.main}>
+          <CitySelector />
+          <WeatherResult weather={fakeWeather} />
+        </main>
+      </div>
     </div>
   );
 }
