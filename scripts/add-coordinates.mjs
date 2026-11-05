@@ -8,6 +8,7 @@ const citiesWithCoords = [];
 const notFound = [];
 
 for (const city of testCities) {
+  console.log(city.name);
   const params = new URLSearchParams({
     name: city.name,
     count: "10",
@@ -39,5 +40,8 @@ for (const city of testCities) {
     console.log("errore", city.name, response.status);
   }
 }
+
+console.log("notFound:", notFound);
+console.log(`Trovati ${citiesWithCoords.length} su ${cities.length}`);
 const arrayResult = JSON.stringify(citiesWithCoords, null, 2);
 await writeFile("src/data/cities-with-coords.json", arrayResult);

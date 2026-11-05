@@ -324,6 +324,12 @@
     "lon": 9.11724
   },
   {
+    "name": "Vermezzo con Zelo",
+    "value": "vermezzo+con+zelo",
+    "lat": 45.38767,
+    "long": 8.98504
+  },
+  {
     "name": "Arluno",
     "value": "arluno",
     "lat": 45.50344,
@@ -658,6 +664,12 @@
     "value": "carpiano",
     "lat": 45.34027,
     "lon": 9.27401
+  },
+  {
+    "name": "Boffalora sopra Ticino",
+    "value": "boffalora+sopra+ticino",
+    "lat": 45.46735,
+    "lon": 8.83095
   },
   {
     "name": "Liscate",

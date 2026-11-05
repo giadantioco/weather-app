@@ -440,7 +440,7 @@
     "value": "carpiano"
   },
   {
-    "name": "Boffalora Sopra Ticino",
+    "name": "Boffalora sopra Ticino",
     "value": "boffalora+sopra+ticino"
   },
   {
@@ -456,8 +456,8 @@
     "value": "vizzolo+predabissi"
   },
   {
-    "name": "Vermezzo",
-    "value": "vermezzo"
+    "name": "Vermezzo con Zelo",
+    "value": "vermezzo+con+zelo"
   },
   {
     "name": "Cusago",
@@ -510,10 +510,6 @@
   {
     "name": "Cassinetta di Lugagnano",
     "value": "cassinetta+di+lugagnano"
-  },
-  {
-    "name": "Zelo Surrigone",
-    "value": "zelo+surrigone"
   },
   {
     "name": "Gudo Visconti",
