@@ -1,5 +1,9 @@
 export async function GET(request: Request) {
-  return Response.json({
-    message: "ciao",
-  });
+  const response = Response.json(
+    {
+      message: "ciao",
+    },
+    { status: 400 },
+  );
+  return response;
 }
