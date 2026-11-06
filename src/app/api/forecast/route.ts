@@ -28,11 +28,15 @@ export async function GET(request: Request) {
   });
   const apiUrl = `https://api.open-meteo.com/v1/forecast?${params}`;
   const response = await fetch(apiUrl);
-  if (!response.ok) {
-    return Response.json(
-      { error: "meteo service not available" },
-      { status: 502 },
-    );
+  try {
+    if (!response.ok) {
+      return Response.json(
+        { error: "meteo service not available" },
+        { status: 502 },
+      );
+    }
+  } catch {
+    return Response.json({ error: "error" }, { status: 508 });
   }
 
   const data = await response.json();
