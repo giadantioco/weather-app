@@ -2,12 +2,11 @@ import { readFile, writeFile } from "fs/promises";
 
 const text = await readFile("src/data/cities.json", "utf-8");
 const cities = JSON.parse(text);
-const testCities = cities;
 
 const citiesWithCoords = [];
 const notFound = [];
 
-for (const city of testCities) {
+for (const city of cities) {
   console.log(city.name);
   const params = new URLSearchParams({
     name: city.name,
