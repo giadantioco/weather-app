@@ -26,20 +26,23 @@ export async function GET(request: Request) {
       "is_day,weather_code,relative_humidity_2m,wind_speed_10m,temperature_2m",
     timezone: "auto",
   });
-  const apiUrl = `https://api.open-meteo.com/v1/forecast?${params}`;
-  const response = await fetch(apiUrl);
+
   try {
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?${params}`;
+    const response = await fetch(apiUrl);
     if (!response.ok) {
       return Response.json(
         { error: "meteo service not available" },
         { status: 502 },
       );
     }
+
+    const data = await response.json();
+    return Response.json(data);
   } catch {
-    return Response.json({ error: "error" }, { status: 508 });
+    return Response.json(
+      { error: "impossibile contattare servizio meteo" },
+      { status: 500 },
+    );
   }
-
-  const data = await response.json();
-
-  return Response.json(data);
 }
