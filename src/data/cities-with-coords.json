@@ -324,12 +324,6 @@
     "lon": 9.11724
   },
   {
-    "name": "Vermezzo con Zelo",
-    "value": "vermezzo+con+zelo",
-    "lat": 45.38767,
-    "long": 8.98504
-  },
-  {
     "name": "Arluno",
     "value": "arluno",
     "lat": 45.50344,
@@ -796,5 +790,11 @@
     "value": "nosate",
     "lat": 45.55074,
     "lon": 8.72509
+  },
+  {
+    "name": "Vermezzo con Zelo",
+    "value": "vermezzo+con+zelo",
+    "lat": 45.39627,
+    "lon": 8.97904
   }
 ]
