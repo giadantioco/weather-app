@@ -4,17 +4,21 @@ export async function GET(request: Request) {
   const lon = url.searchParams.get("lon");
 
   if (!lat || !lon) {
-    return Response.json({ error: "lat e lon are mandatory" }, { status: 400 });
+    return Response.json({ error: "lat and lon are mandatory" }, { status: 400 });
   }
-  if (Number.isNaN(Number(lat))) {
+
+  const numberLat = Number(lat)
+  const numberLon = Number(lon)
+
+  if (Number.isNaN(numberLat) || numberLat < -90 || numberLat > 90) {
     return Response.json(
-      { error: "latitude must be a number" },
+      { error: "latitude must be a number between -90 and 90" },
       { status: 400 },
     );
   }
-  if (Number.isNaN(Number(lon))) {
+  if (Number.isNaN(numberLon) || numberLon < -180 || numberLon > 180) {
     return Response.json(
-      { error: "longitude must be a number" },
+      { error: "longitude must be a number between -180 and 180" },
       { status: 400 },
     );
   }
@@ -41,8 +45,8 @@ export async function GET(request: Request) {
     return Response.json(data);
   } catch {
     return Response.json(
-      { error: "impossibile contattare servizio meteo" },
-      { status: 500 },
+      { error: "impossible contatct meteo service" },
+      { status: 502 },
     );
   }
 }
