@@ -24,8 +24,8 @@ export async function GET(request: Request) {
   }
 
   const params = new URLSearchParams({
-    latitude: lat,
-    longitude: lon,
+    latitude: numberLat.toString(),
+    longitude: numberLon.toString(),
     current:
       "is_day,weather_code,relative_humidity_2m,wind_speed_10m,temperature_2m",
     timezone: "auto",

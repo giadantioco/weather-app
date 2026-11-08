@@ -1,11 +1,26 @@
-import cities from "@/data/cities.json";
+
+import type { City } from "@/types/weather";
+import cities from "@/data/cities-with-coords.json"
 import style from "./CitySelector.module.scss";
 import Image from "next/image";
 
-export default function CitySelector() {
+export type CitySelectorProps = {
+  onSelect: (selectedCity: City) => void;
+};
+
+export default function CitySelector({ onSelect }: CitySelectorProps) {
+  function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const selectedValue = e.target.value;
+    const selectedCity = cities.find((city) => city.value === selectedValue)
+    if (!selectedCity) {
+      return
+    }
+    onSelect(selectedCity)
+  }
+
   return (
     <section className={style.container}>
-      <select className={style.citySelect} defaultValue="">
+      <select className={style.citySelect} defaultValue="" onChange={handleChange}>
         <option value="" disabled hidden>
           Please choose a city
         </option>
