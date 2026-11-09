@@ -7,16 +7,6 @@ import style from "./WeatherApp.module.scss";
 import { getTimeSlot } from "@/lib/time/getTimeSlot";
 import { useState } from "react";
 
-
-const fakeWeather: WeatherData = {
-  cityName: "Milano",
-  dateTime: "04/11/2026, 13.20",
-  description: "Windy, Clear",
-  temperature: 16,
-  wind: 4,
-  humidity: 46,
-};
-
 const timeSlot = getTimeSlot(15);
 
 export default function WeatherApp() {
@@ -43,7 +33,18 @@ export default function WeatherApp() {
         setError(result.error)
         return;
       }
-      console.log(result)
+      const weather: WeatherData = {
+        cityName: selectedCity.name,
+        dateTime: result.current.time,
+        description: "will change soon",
+        temperature: result.current.temperature_2m,
+        wind: result.current.wind_speed_10m,
+        humidity: result.current.relative_humidity_2m
+      };
+
+      console.log(weather)
+      setData(weather);
+
     } catch (err) {
       setError("I cannot find weather infos atm, sorry. Try later")
       console.error(err)
@@ -51,16 +52,16 @@ export default function WeatherApp() {
       setLoading(false)
     }
   }
-
-
-
   return (
     <div className={`${style.background} ${style[timeSlot]}`}>
       <div className={style.appContainer}>
         <Header />
         <main className={style.main}>
           <CitySelector onSelect={handleSelect} />
-          <WeatherResult weather={fakeWeather} />
+          {loading && loading}
+          {error && <p>invalid input </p>}
+          {data &&
+            <WeatherResult weather={data} />}
         </main>
       </div>
     </div>
