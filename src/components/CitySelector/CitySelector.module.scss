@@ -20,9 +20,8 @@ $field-height: 48px;
 
 .spinner {
   position: absolute;
-  right: 20px center;
-  background-size: 12px;
-  padding-right: 44px;
+  right: 40px;
+  top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
 }

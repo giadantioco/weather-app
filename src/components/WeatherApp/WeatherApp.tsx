@@ -26,14 +26,16 @@ export default function WeatherApp() {
     const url = `/api/forecast?${searchParams}`
     setLoading(true)
     setError(null)
-    setData(null)
     try {
       const response = await fetch(url)
       const result = await response.json()
       if (!response.ok) {
         setError(result.error)
+        setData(null);
         return;
+
       }
+
       const weather: WeatherData = {
         cityName: selectedCity.name,
         dateTime: result.current.time,
@@ -47,8 +49,9 @@ export default function WeatherApp() {
       setData(weather);
 
     } catch (err) {
-      setError("I cannot find weather, sorry. Try later")
+      setError("Unable to load city. Check your connection and try again.")
       console.error(err)
+      setData(null)
     } finally {
       setLoading(false)
     }
