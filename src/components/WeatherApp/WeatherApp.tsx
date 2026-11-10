@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Header from "@/components/Header/Header";
 import CitySelector from "@/components/CitySelector/CitySelector";
 import WeatherResult from "@/components/WeatherResult/WeatherResult";
@@ -11,49 +11,48 @@ const timeSlot = getTimeSlot(15);
 
 export default function WeatherApp() {
   const [city, setCity] = useState<City | null>(null);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<WeatherData | null>(null)
+  const [data, setData] = useState<WeatherData | null>(null);
 
   async function handleSelect(selectedCity: City) {
     setCity(selectedCity);
-    console.log(selectedCity)
+    console.log(selectedCity);
 
     const cityLat = selectedCity.lat.toString();
-    const cityLon = selectedCity.lon.toString()
+    const cityLon = selectedCity.lon.toString();
 
-    const searchParams = new URLSearchParams({ lat: cityLat, lon: cityLon })
-    const url = `/api/forecast?${searchParams}`
-    setLoading(true)
-    setError(null)
+    const searchParams = new URLSearchParams({ lat: cityLat, lon: cityLon });
+    const url = `/api/forecast?${searchParams}`;
+    setLoading(true);
+    setError(null);
     try {
-      const response = await fetch(url)
-      const result = await response.json()
+      const response = await fetch(url);
+      const result = await response.json();
       if (!response.ok) {
-        setError(result.error)
+        setError(result.error);
         setData(null);
         return;
-
       }
 
       const weather: WeatherData = {
         cityName: selectedCity.name,
         dateTime: result.current.time,
-        description: "will change soon",
+        isDay: result.current.is_day === 1,
+        weatherCode: result.current.weather_code,
         temperature: result.current.temperature_2m,
         wind: result.current.wind_speed_10m,
-        humidity: result.current.relative_humidity_2m
+        humidity: result.current.relative_humidity_2m,
       };
 
-      console.log(weather)
+      console.log(weather);
       setData(weather);
-
     } catch (err) {
-      setError("Unable to load city. Check your connection and try again.")
-      console.error(err)
-      setData(null)
+      setError("Unable to load city. Check your connection and try again.");
+      console.error(err);
+      setData(null);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
   return (
@@ -63,10 +62,8 @@ export default function WeatherApp() {
         <main className={style.main}>
           <CitySelector onSelect={handleSelect} isLoading={loading} />
           <div className={style.resultArea} role="status">
-
             {error && <p>{error} </p>}
-            {data &&
-              <WeatherResult weather={data} />}
+            {data && <WeatherResult weather={data} />}
           </div>
         </main>
       </div>

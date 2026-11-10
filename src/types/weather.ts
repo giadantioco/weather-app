@@ -4,7 +4,8 @@ export type City = (typeof cities)[number];
 export type WeatherData = {
   cityName: string;
   dateTime: string;
-  description: string;
+  isDay: boolean;
+  weatherCode: number;
   temperature: number;
   wind: number;
   humidity: number;
