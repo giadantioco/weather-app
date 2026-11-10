@@ -3,25 +3,22 @@
 @use "variables" as *;
 
 $time-backgrounds: (
-  morning: (
-    color: $color-morning,
+  morning: (color: $color-morning,
     image: "/background/morning.svg",
   ),
-  afternoon: (
-    color: $color-afternoon,
+  afternoon: (color: $color-afternoon,
     image: "/background/afternoon.svg",
   ),
-  evening: (
-    color: $color-evening,
+  evening: (color: $color-evening,
     image: "/background/evening.svg",
   ),
-  night: (
-    color: $color-night,
+  night: (color: $color-night,
     image: "/background/night.svg",
   ),
 );
 
-@each $slot, $values in $time-backgrounds {
+@each $slot,
+$values in $time-backgrounds {
   .#{$slot} {
     background-color: map.get($values, color);
     background-image: url(map.get($values, image));
@@ -60,5 +57,9 @@ $time-backgrounds: (
     align-content: center;
     align-items: start;
     gap: 40px;
+  }
+
+  .resultArea {
+    min-height: 300px;
   }
 }

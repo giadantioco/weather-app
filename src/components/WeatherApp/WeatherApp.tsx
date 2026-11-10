@@ -26,6 +26,7 @@ export default function WeatherApp() {
     const url = `/api/forecast?${searchParams}`
     setLoading(true)
     setError(null)
+    setData(null)
     try {
       const response = await fetch(url)
       const result = await response.json()
@@ -46,7 +47,7 @@ export default function WeatherApp() {
       setData(weather);
 
     } catch (err) {
-      setError("I cannot find weather infos atm, sorry. Try later")
+      setError("I cannot find weather, sorry. Try later")
       console.error(err)
     } finally {
       setLoading(false)
@@ -57,11 +58,13 @@ export default function WeatherApp() {
       <div className={style.appContainer}>
         <Header />
         <main className={style.main}>
-          <CitySelector onSelect={handleSelect} />
-          {loading && loading}
-          {error && <p>invalid input </p>}
-          {data &&
-            <WeatherResult weather={data} />}
+          <CitySelector onSelect={handleSelect} isLoading={loading} />
+          <div className={style.resultArea} role="status">
+
+            {error && <p>{error} </p>}
+            {data &&
+              <WeatherResult weather={data} />}
+          </div>
         </main>
       </div>
     </div>

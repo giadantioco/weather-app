@@ -14,10 +14,24 @@ $field-height: 48px;
   padding: 20px;
 }
 
+.selectWrapper {
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  right: 20px center;
+  background-size: 12px;
+  padding-right: 44px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 .citySelect,
 .geolocation,
 .cityInput {
   height: $field-height;
+  width: 100%;
   border-radius: 25px;
   padding: 0 20px;
   border: none;
@@ -49,6 +63,7 @@ $field-height: 48px;
 
 .cityInput {
   flex: 1;
+
   &::placeholder {
     color: lightgray;
   }
