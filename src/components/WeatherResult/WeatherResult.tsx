@@ -3,15 +3,24 @@ import { WeatherData } from "@/types/weather";
 import Image from "next/image";
 import WeatherStat from "./WeatherStat/WeatherStat";
 import weatherCodes from "@/data/weather-codes.json";
+import { WeatherCodeInfo } from "@/types/weather";
 
 export default function WeatherResult({ weather }: { weather: WeatherData }) {
+  const codes: Record<string, WeatherCodeInfo | undefined> = weatherCodes;
+
+  const currentWeather = weather.isDay
+    ? codes[weather.weatherCode]?.day
+    : codes[weather.weatherCode]?.night;
   return (
     <div className={style.container}>
       <div className={style.weatherResult}>
         <p>{weather.dateTime}</p>
         <h2>{weather.cityName}</h2>
         <div className={style.description}>
-          <p>{weather.weatherCode}</p>
+          <p>
+            {currentWeather?.description ??
+              "weather description not available "}
+          </p>
           <Image src={"/icons/error.svg"} width={120} height={100} alt="" />
         </div>
       </div>

@@ -10,3 +10,8 @@ export type WeatherData = {
   wind: number;
   humidity: number;
 };
+
+export type WeatherCodeInfo = {
+  day: { description: string; image: string };
+  night: { description: string; image: string };
+};
