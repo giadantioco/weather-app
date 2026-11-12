@@ -3,22 +3,25 @@
 @use "variables" as *;
 
 $time-backgrounds: (
-  morning: (color: $color-morning,
+  morning: (
+    color: $color-morning,
     image: "/background/morning.svg",
   ),
-  afternoon: (color: $color-afternoon,
+  afternoon: (
+    color: $color-afternoon,
     image: "/background/afternoon.svg",
   ),
-  evening: (color: $color-evening,
+  evening: (
+    color: $color-evening,
     image: "/background/evening.svg",
   ),
-  night: (color: $color-night,
+  night: (
+    color: $color-night,
     image: "/background/night.svg",
   ),
 );
 
-@each $slot,
-$values in $time-backgrounds {
+@each $slot, $values in $time-backgrounds {
   .#{$slot} {
     background-color: map.get($values, color);
     background-image: url(map.get($values, image));
@@ -31,6 +34,8 @@ $values in $time-backgrounds {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 .appContainer {
@@ -38,7 +43,7 @@ $values in $time-backgrounds {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
-  min-height: 100dvh;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }

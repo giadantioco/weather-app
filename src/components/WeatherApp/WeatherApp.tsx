@@ -6,6 +6,7 @@ import { WeatherData, City } from "@/types/weather";
 import style from "./WeatherApp.module.scss";
 import { getTimeSlot } from "@/lib/time/getTimeSlot";
 import { useState } from "react";
+import Footer from "../Footer/Footer";
 
 const timeSlot = getTimeSlot(15);
 
@@ -67,6 +68,7 @@ export default function WeatherApp() {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
