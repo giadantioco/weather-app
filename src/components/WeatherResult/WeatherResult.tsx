@@ -2,6 +2,7 @@ import style from "./WeatherResult.module.scss";
 import { WeatherData } from "@/types/weather";
 import Image from "next/image";
 import WeatherStat from "./WeatherStat/WeatherStat";
+import weatherCodes from "@/data/weather-codes.json";
 
 export default function WeatherResult({ weather }: { weather: WeatherData }) {
   return (
@@ -10,7 +11,7 @@ export default function WeatherResult({ weather }: { weather: WeatherData }) {
         <p>{weather.dateTime}</p>
         <h2>{weather.cityName}</h2>
         <div className={style.description}>
-          <p>{weather.description}</p>
+          <p>{weather.weatherCode}</p>
           <Image src={"/icons/error.svg"} width={120} height={100} alt="" />
         </div>
       </div>
