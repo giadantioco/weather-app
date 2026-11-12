@@ -21,7 +21,12 @@ export default function WeatherResult({ weather }: { weather: WeatherData }) {
             {currentWeather?.description ??
               "weather description not available "}
           </p>
-          <Image src={"/icons/error.svg"} width={120} height={100} alt="" />
+          <Image
+            src={currentWeather?.image ?? "/icons/error.svg"}
+            width={100}
+            height={100}
+            alt=""
+          />
         </div>
       </div>
       <div className={style.extraResult}>
