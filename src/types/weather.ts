@@ -15,3 +15,12 @@ export type WeatherCodeInfo = {
   day: { description: string; image: string };
   night: { description: string; image: string };
 };
+
+export type CitySearchResult = {
+  id: number;
+  name: string;
+  latitude: number;
+  longitude: number;
+  admin1?: string;
+  country?: string;
+};

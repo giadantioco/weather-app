@@ -25,6 +25,7 @@ export async function GET(request: Request) {
 
   try {
     const openUrl = `https://geocoding-api.open-meteo.com/v1/search?${params}`;
+    console.log(openUrl);
     const response = await fetch(openUrl);
     if (!response.ok) {
       return Response.json(
@@ -34,7 +35,8 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json();
-    const cityList = data.result ?? [];
+    console.log(data);
+    const cityList = data.results ?? [];
     return Response.json(cityList);
   } catch {
     return Response.json(
