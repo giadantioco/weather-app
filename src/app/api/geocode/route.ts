@@ -1,3 +1,5 @@
+import { CitySearchResult } from "@/types/weather";
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const name = url.searchParams.get("name");
@@ -35,8 +37,19 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json();
-    const cityList = data.results ?? [];
-    return Response.json(cityList);
+
+    const cityList: CitySearchResult[] = data.results ?? [];
+
+    const results = cityList.map((r) => ({
+      id: r.id,
+      name: r.name,
+      latitude: r.latitude,
+      longitude: r.longitude,
+      country: r.country,
+      admin1: r.admin1,
+    }));
+
+    return Response.json(results);
   } catch {
     return Response.json(
       { error: "impossible contact meteo service" },
