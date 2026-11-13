@@ -67,4 +67,16 @@ $time-backgrounds: (
   .resultArea {
     min-height: 300px;
   }
+
+  .controls {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: $color-surface;
+    border-radius: 25px;
+    padding: 20px;
+  }
 }

@@ -1,6 +1,7 @@
 "use client";
 import Header from "@/components/Header/Header";
 import CitySelector from "@/components/CitySelector/CitySelector";
+import CitySearch from "@/components/CitySearch/CitySearch";
 import WeatherResult from "@/components/WeatherResult/WeatherResult";
 import { WeatherData, City } from "@/types/weather";
 import style from "./WeatherApp.module.scss";
@@ -56,12 +57,16 @@ export default function WeatherApp() {
       setLoading(false);
     }
   }
+
   return (
     <div className={`${style.background} ${style[timeSlot]}`}>
       <div className={style.appContainer}>
         <Header />
         <main className={style.main}>
-          <CitySelector onSelect={handleSelect} isLoading={loading} />
+          <section className={style.controls}>
+            <CitySelector onSelect={handleSelect} isLoading={loading} />
+            <CitySearch />
+          </section>
           <div className={style.resultArea} role="status">
             {error && <p>{error} </p>}
             {data && <WeatherResult weather={data} />}

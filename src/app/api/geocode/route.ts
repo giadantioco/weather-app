@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     );
   }
   const cleanName = name.trim();
-  if (cleanName.length < 3) {
+  if (cleanName.length >= 3) {
     return Response.json(
       { error: "please insert at least three characters" },
       { status: 400 },
