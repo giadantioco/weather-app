@@ -1,0 +1,800 @@
+[
+  {
+    "name": "Milano",
+    "value": "milano",
+    "lat": 45.46427,
+    "lon": 9.18951
+  },
+  {
+    "name": "Sesto San Giovanni",
+    "value": "sesto+san+giovanni",
+    "lat": 45.53329,
+    "lon": 9.22585
+  },
+  {
+    "name": "Cinisello Balsamo",
+    "value": "cinisello+balsamo",
+    "lat": 45.55823,
+    "lon": 9.21495
+  },
+  {
+    "name": "Legnano",
+    "value": "legnano",
+    "lat": 45.59788,
+    "lon": 8.91506
+  },
+  {
+    "name": "Rho",
+    "value": "rho",
+    "lat": 45.53245,
+    "lon": 9.0402
+  },
+  {
+    "name": "Cologno Monzese",
+    "value": "cologno+monzese",
+    "lat": 45.53004,
+    "lon": 9.27795
+  },
+  {
+    "name": "Paderno Dugnano",
+    "value": "paderno+dugnano",
+    "lat": 45.56899,
+    "lon": 9.16483
+  },
+  {
+    "name": "Rozzano",
+    "value": "rozzano",
+    "lat": 45.38193,
+    "lon": 9.1559
+  },
+  {
+    "name": "San Giuliano Milanese",
+    "value": "san+giuliano+milanese",
+    "lat": 45.39402,
+    "lon": 9.29109
+  },
+  {
+    "name": "Pioltello",
+    "value": "pioltello",
+    "lat": 45.50147,
+    "lon": 9.33053
+  },
+  {
+    "name": "Bollate",
+    "value": "bollate",
+    "lat": 45.54647,
+    "lon": 9.12054
+  },
+  {
+    "name": "Segrate",
+    "value": "segrate",
+    "lat": 45.49185,
+    "lon": 9.29812
+  },
+  {
+    "name": "Corsico",
+    "value": "corsico",
+    "lat": 45.43099,
+    "lon": 9.11093
+  },
+  {
+    "name": "Cernusco sul Naviglio",
+    "value": "cernusco+sul+naviglio",
+    "lat": 45.52526,
+    "lon": 9.33297
+  },
+  {
+    "name": "Abbiategrasso",
+    "value": "abbiategrasso",
+    "lat": 45.39821,
+    "lon": 8.91678
+  },
+  {
+    "name": "San Donato Milanese",
+    "value": "san+donato+milanese",
+    "lat": 45.41047,
+    "lon": 9.26838
+  },
+  {
+    "name": "Parabiago",
+    "value": "parabiago",
+    "lat": 45.56034,
+    "lon": 8.94545
+  },
+  {
+    "name": "Buccinasco",
+    "value": "buccinasco",
+    "lat": 45.40703,
+    "lon": 9.1083
+  },
+  {
+    "name": "Garbagnate Milanese",
+    "value": "garbagnate+milanese",
+    "lat": 45.57438,
+    "lon": 9.07537
+  },
+  {
+    "name": "Bresso",
+    "value": "bresso",
+    "lat": 45.53792,
+    "lon": 9.18921
+  },
+  {
+    "name": "Lainate",
+    "value": "lainate",
+    "lat": 45.57176,
+    "lon": 9.02681
+  },
+  {
+    "name": "Magenta",
+    "value": "magenta",
+    "lat": 45.46456,
+    "lon": 8.88453
+  },
+  {
+    "name": "Cesano Boscone",
+    "value": "cesano+boscone",
+    "lat": 45.44207,
+    "lon": 9.09445
+  },
+  {
+    "name": "Peschiera Borromeo",
+    "value": "peschiera+borromeo",
+    "lat": 45.43673,
+    "lon": 9.3302
+  },
+  {
+    "name": "Senago",
+    "value": "senago",
+    "lat": 45.57562,
+    "lon": 9.1262
+  },
+  {
+    "name": "Trezzano sul Naviglio",
+    "value": "trezzano+sul+naviglio",
+    "lat": 45.42212,
+    "lon": 9.06342
+  },
+  {
+    "name": "Cornaredo",
+    "value": "cornaredo",
+    "lat": 45.50128,
+    "lon": 9.02681
+  },
+  {
+    "name": "Gorgonzola",
+    "value": "gorgonzola",
+    "lat": 45.53069,
+    "lon": 9.40531
+  },
+  {
+    "name": "Cormano",
+    "value": "cormano",
+    "lat": 45.54917,
+    "lon": 9.15964
+  },
+  {
+    "name": "Settimo Milanese",
+    "value": "settimo+milanese",
+    "lat": 45.47771,
+    "lon": 9.05574
+  },
+  {
+    "name": "Novate Milanese",
+    "value": "novate+milanese",
+    "lat": 45.5305,
+    "lon": 9.13954
+  },
+  {
+    "name": "Arese",
+    "value": "arese",
+    "lat": 45.55048,
+    "lon": 9.07741
+  },
+  {
+    "name": "Cassano d'Adda",
+    "value": "cassano+dadda",
+    "lat": 45.52637,
+    "lon": 9.51528
+  },
+  {
+    "name": "Cusano Milanino",
+    "value": "cusano+milanino",
+    "lat": 45.55187,
+    "lon": 9.18373
+  },
+  {
+    "name": "Melzo",
+    "value": "melzo",
+    "lat": 45.4981,
+    "lon": 9.42043
+  },
+  {
+    "name": "Corbetta",
+    "value": "corbetta",
+    "lat": 45.46723,
+    "lon": 8.91867
+  },
+  {
+    "name": "Melegnano",
+    "value": "melegnano",
+    "lat": 45.35781,
+    "lon": 9.3236
+  },
+  {
+    "name": "Bareggio",
+    "value": "bareggio",
+    "lat": 45.47927,
+    "lon": 8.99789
+  },
+  {
+    "name": "Nerviano",
+    "value": "nerviano",
+    "lat": 45.55343,
+    "lon": 8.9792
+  },
+  {
+    "name": "Vimodrone",
+    "value": "vimodrone",
+    "lat": 45.51461,
+    "lon": 9.28772
+  },
+  {
+    "name": "Pieve Emanuele",
+    "value": "pieve+emanuele",
+    "lat": 45.35052,
+    "lon": 9.20268
+  },
+  {
+    "name": "Carugate",
+    "value": "carugate",
+    "lat": 45.54983,
+    "lon": 9.34044
+  },
+  {
+    "name": "Cerro Maggiore",
+    "value": "cerro+maggiore",
+    "lat": 45.59366,
+    "lon": 8.95428
+  },
+  {
+    "name": "Cesate",
+    "value": "cesate",
+    "lat": 45.59587,
+    "lon": 9.07574
+  },
+  {
+    "name": "Solaro",
+    "value": "solaro",
+    "lat": 45.61427,
+    "lon": 9.08304
+  },
+  {
+    "name": "Rescaldina",
+    "value": "rescaldina",
+    "lat": 45.62002,
+    "lon": 8.94878
+  },
+  {
+    "name": "Busto Garolfo",
+    "value": "busto+garolfo",
+    "lat": 45.54809,
+    "lon": 8.88298
+  },
+  {
+    "name": "Opera",
+    "value": "opera",
+    "lat": 45.37355,
+    "lon": 9.21084
+  },
+  {
+    "name": "Cassina de' Pecchi",
+    "value": "cassina+depecchi",
+    "lat": 45.51637,
+    "lon": 9.35975
+  },
+  {
+    "name": "Canegrate",
+    "value": "canegrate",
+    "lat": 45.56825,
+    "lon": 8.92689
+  },
+  {
+    "name": "Mediglia",
+    "value": "mediglia",
+    "lat": 45.39537,
+    "lon": 9.33165
+  },
+  {
+    "name": "Trezzo sull'Adda",
+    "value": "trezzo+sulladda",
+    "lat": 45.60523,
+    "lon": 9.51417
+  },
+  {
+    "name": "Sedriano",
+    "value": "sedriano",
+    "lat": 45.49105,
+    "lon": 8.97161
+  },
+  {
+    "name": "Baranzate",
+    "value": "baranzate",
+    "lat": 45.52717,
+    "lon": 9.11724
+  },
+  {
+    "name": "Arluno",
+    "value": "arluno",
+    "lat": 45.50344,
+    "lon": 8.94222
+  },
+  {
+    "name": "Paullo",
+    "value": "paullo",
+    "lat": 45.41834,
+    "lon": 9.40042
+  },
+  {
+    "name": "Castano Primo",
+    "value": "castano+primo",
+    "lat": 45.55175,
+    "lon": 8.77562
+  },
+  {
+    "name": "Pero",
+    "value": "pero",
+    "lat": 45.51017,
+    "lon": 9.08704
+  },
+  {
+    "name": "Inzago",
+    "value": "inzago",
+    "lat": 45.53991,
+    "lon": 9.48343
+  },
+  {
+    "name": "Locate di Triulzi",
+    "value": "locate+di+triulzi",
+    "lat": 45.35691,
+    "lon": 9.22516
+  },
+  {
+    "name": "Vignate",
+    "value": "vignate",
+    "lat": 45.49939,
+    "lon": 9.37719
+  },
+  {
+    "name": "Magnago",
+    "value": "magnago",
+    "lat": 45.5792,
+    "lon": 8.80245
+  },
+  {
+    "name": "Vanzago",
+    "value": "vanzago",
+    "lat": 45.52566,
+    "lon": 8.99097
+  },
+  {
+    "name": "Gaggiano",
+    "value": "gaggiano",
+    "lat": 45.40484,
+    "lon": 9.03488
+  },
+  {
+    "name": "Pessano con Bornago",
+    "value": "pessano+con+bornago",
+    "lat": 45.54937,
+    "lon": 9.38145
+  },
+  {
+    "name": "Vittuone",
+    "value": "vittuone",
+    "lat": 45.48792,
+    "lon": 8.95141
+  },
+  {
+    "name": "Assago",
+    "value": "assago",
+    "lat": 45.40887,
+    "lon": 9.12565
+  },
+  {
+    "name": "Vaprio d'Adda",
+    "value": "vaprio+dadda",
+    "lat": 45.5764,
+    "lon": 9.52407
+  },
+  {
+    "name": "Lacchiarella",
+    "value": "lacchiarella",
+    "lat": 45.3229,
+    "lon": 9.13777
+  },
+  {
+    "name": "Gessate",
+    "value": "gessate",
+    "lat": 45.54838,
+    "lon": 9.43775
+  },
+  {
+    "name": "Inveruno",
+    "value": "inveruno",
+    "lat": 45.51399,
+    "lon": 8.84954
+  },
+  {
+    "name": "Bussero",
+    "value": "bussero",
+    "lat": 45.53407,
+    "lon": 9.37205
+  },
+  {
+    "name": "Pozzuolo Martesana",
+    "value": "pozzuolo+martesana",
+    "lat": 45.51398,
+    "lon": 9.45625
+  },
+  {
+    "name": "San Vittore Olona",
+    "value": "san+vittore+olona",
+    "lat": 45.58577,
+    "lon": 8.94134
+  },
+  {
+    "name": "Pogliano Milanese",
+    "value": "pogliano+milanese",
+    "lat": 45.53786,
+    "lon": 8.99403
+  },
+  {
+    "name": "Cuggiono",
+    "value": "cuggiono",
+    "lat": 45.50683,
+    "lon": 8.8155
+  },
+  {
+    "name": "Motta Visconti",
+    "value": "motta+visconti",
+    "lat": 45.28774,
+    "lon": 8.99254
+  },
+  {
+    "name": "Basiglio",
+    "value": "basiglio",
+    "lat": 45.35917,
+    "lon": 9.15855
+  },
+  {
+    "name": "Settala",
+    "value": "settala",
+    "lat": 45.45357,
+    "lon": 9.38715
+  },
+  {
+    "name": "San Colombano al Lambro",
+    "value": "san+colombano+al+lambro",
+    "lat": 45.18322,
+    "lon": 9.49028
+  },
+  {
+    "name": "Pregnana Milanese",
+    "value": "pregnana+milanese",
+    "lat": 45.51597,
+    "lon": 9.00704
+  },
+  {
+    "name": "Turbigo",
+    "value": "turbigo",
+    "lat": 45.53076,
+    "lon": 8.73671
+  },
+  {
+    "name": "Binasco",
+    "value": "binasco",
+    "lat": 45.33102,
+    "lon": 9.0944
+  },
+  {
+    "name": "Cambiago",
+    "value": "cambiago",
+    "lat": 45.58035,
+    "lon": 9.43528
+  },
+  {
+    "name": "Zibido San Giacomo",
+    "value": "zibido+san+giacomo",
+    "lat": 45.36041,
+    "lon": 9.11119
+  },
+  {
+    "name": "San Giorgio su Legnano",
+    "value": "san+giorgio+su+legnano",
+    "lat": 45.57377,
+    "lon": 8.91374
+  },
+  {
+    "name": "Robecco sul Naviglio",
+    "value": "robecco+sul+naviglio",
+    "lat": 45.43662,
+    "lon": 8.88573
+  },
+  {
+    "name": "Arconate",
+    "value": "arconate",
+    "lat": 45.54134,
+    "lon": 8.84891
+  },
+  {
+    "name": "Dairago",
+    "value": "dairago",
+    "lat": 45.5658,
+    "lon": 8.86265
+  },
+  {
+    "name": "Marcallo con Casone",
+    "value": "marcallo+con+casone",
+    "lat": 45.48327,
+    "lon": 8.87194
+  },
+  {
+    "name": "Villa Cortese",
+    "value": "villa+cortese",
+    "lat": 45.56666,
+    "lon": 8.88712
+  },
+  {
+    "name": "Pantigliate",
+    "value": "pantigliate",
+    "lat": 45.43526,
+    "lon": 9.3522
+  },
+  {
+    "name": "Pozzo d'Adda",
+    "value": "pozzo+dadda",
+    "lat": 45.57258,
+    "lon": 9.50295
+  },
+  {
+    "name": "Truccazzano",
+    "value": "truccazzano",
+    "lat": 45.48455,
+    "lon": 9.4695
+  },
+  {
+    "name": "Rosate",
+    "value": "rosate",
+    "lat": 45.34965,
+    "lon": 9.01659
+  },
+  {
+    "name": "Casorezzo",
+    "value": "casorezzo",
+    "lat": 45.52265,
+    "lon": 8.90186
+  },
+  {
+    "name": "Vanzaghello",
+    "value": "vanzaghello",
+    "lat": 45.57964,
+    "lon": 8.78234
+  },
+  {
+    "name": "Trezzano Rosa",
+    "value": "trezzano+rosa",
+    "lat": 45.58228,
+    "lon": 9.48567
+  },
+  {
+    "name": "Cerro al Lambro",
+    "value": "cerro+al+lambro",
+    "lat": 45.32997,
+    "lon": 9.33905
+  },
+  {
+    "name": "Santo Stefano Ticino",
+    "value": "santo+stefano+ticino",
+    "lat": 45.48635,
+    "lon": 8.91582
+  },
+  {
+    "name": "Robecchetto con Induno",
+    "value": "robecchetto+con+induno",
+    "lat": 45.52848,
+    "lon": 8.77068
+  },
+  {
+    "name": "Cisliano",
+    "value": "cisliano",
+    "lat": 45.44371,
+    "lon": 8.98695
+  },
+  {
+    "name": "Buscate",
+    "value": "buscate",
+    "lat": 45.54353,
+    "lon": 8.81297
+  },
+  {
+    "name": "Albairate",
+    "value": "albairate",
+    "lat": 45.41957,
+    "lon": 8.93744
+  },
+  {
+    "name": "Rodano",
+    "value": "rodano",
+    "lat": 45.47607,
+    "lon": 9.35315
+  },
+  {
+    "name": "Noviglio",
+    "value": "noviglio",
+    "lat": 45.35907,
+    "lon": 9.05215
+  },
+  {
+    "name": "San Zenone al Lambro",
+    "value": "san+zenone+al+lambro",
+    "lat": 45.32681,
+    "lon": 9.35598
+  },
+  {
+    "name": "Ossona",
+    "value": "ossona",
+    "lat": 45.50708,
+    "lon": 8.89314
+  },
+  {
+    "name": "Mesero",
+    "value": "mesero",
+    "lat": 45.50227,
+    "lon": 8.85544
+  },
+  {
+    "name": "Carpiano",
+    "value": "carpiano",
+    "lat": 45.34027,
+    "lon": 9.27401
+  },
+  {
+    "name": "Boffalora sopra Ticino",
+    "value": "boffalora+sopra+ticino",
+    "lat": 45.46735,
+    "lon": 8.83095
+  },
+  {
+    "name": "Liscate",
+    "value": "liscate",
+    "lat": 45.48316,
+    "lon": 9.4103
+  },
+  {
+    "name": "Casarile",
+    "value": "casarile",
+    "lat": 45.31683,
+    "lon": 9.10383
+  },
+  {
+    "name": "Vizzolo Predabissi",
+    "value": "vizzolo+predabissi",
+    "lat": 45.35587,
+    "lon": 9.34815
+  },
+  {
+    "name": "Cusago",
+    "value": "cusago",
+    "lat": 45.44997,
+    "lon": 9.03744
+  },
+  {
+    "name": "Bellinzago Lombardo",
+    "value": "bellinzago+lombardo",
+    "lat": 45.54207,
+    "lon": 9.44595
+  },
+  {
+    "name": "Basiano",
+    "value": "basiano",
+    "lat": 45.58248,
+    "lon": 9.46325
+  },
+  {
+    "name": "Tribiano",
+    "value": "tribiano",
+    "lat": 45.41323,
+    "lon": 9.37693
+  },
+  {
+    "name": "Masate",
+    "value": "masate",
+    "lat": 45.56708,
+    "lon": 9.46415
+  },
+  {
+    "name": "Vernate",
+    "value": "vernate",
+    "lat": 45.31589,
+    "lon": 9.06045
+  },
+  {
+    "name": "Bernate Ticino",
+    "value": "bernate+ticino",
+    "lat": 45.47873,
+    "lon": 8.81834
+  },
+  {
+    "name": "Grezzago",
+    "value": "grezzago",
+    "lat": 45.59108,
+    "lon": 9.49725
+  },
+  {
+    "name": "Dresano",
+    "value": "dresano",
+    "lat": 45.37297,
+    "lon": 9.35785
+  },
+  {
+    "name": "Bubbiano",
+    "value": "bubbiano",
+    "lat": 45.32727,
+    "lon": 9.01455
+  },
+  {
+    "name": "Colturano",
+    "value": "colturano",
+    "lat": 45.38151,
+    "lon": 9.33443
+  },
+  {
+    "name": "Besate",
+    "value": "besate",
+    "lat": 45.31296,
+    "lon": 8.96964
+  },
+  {
+    "name": "Cassinetta di Lugagnano",
+    "value": "cassinetta+di+lugagnano",
+    "lat": 45.42247,
+    "lon": 8.90604
+  },
+  {
+    "name": "Gudo Visconti",
+    "value": "gudo+visconti",
+    "lat": 45.37407,
+    "lon": 9.00014
+  },
+  {
+    "name": "Ozzero",
+    "value": "ozzero",
+    "lat": 45.36775,
+    "lon": 8.9244
+  },
+  {
+    "name": "Calvignasco",
+    "value": "calvignasco",
+    "lat": 45.32597,
+    "lon": 9.02775
+  },
+  {
+    "name": "Morimondo",
+    "value": "morimondo",
+    "lat": 45.35381,
+    "lon": 8.95626
+  },
+  {
+    "name": "Nosate",
+    "value": "nosate",
+    "lat": 45.55074,
+    "lon": 8.72509
+  },
+  {
+    "name": "Vermezzo con Zelo",
+    "value": "vermezzo+con+zelo",
+    "lat": 45.39627,
+    "lon": 8.97904
+  }
+]

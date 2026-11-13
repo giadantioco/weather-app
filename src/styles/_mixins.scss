@@ -1,13 +1,23 @@
 @use "./variables" as *;
 
 @mixin breakpoint-tablet {
-    @media only screen and (min-width: $breakpoint-tablet) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-tablet) {
+    @content;
+  }
 }
 
 @mixin breakpoint-desktop {
-    @media only screen and (min-width: $breakpoint-desktop) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin field {
+  height: $field-height;
+  width: 100%;
+  border-radius: 25px;
+  padding: 0 20px;
+  border: none;
+  background-color: white;
+  font: inherit;
 }

@@ -34,6 +34,8 @@ $time-backgrounds: (
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 .appContainer {
@@ -41,7 +43,7 @@ $time-backgrounds: (
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
-  min-height: 100dvh;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -60,5 +62,21 @@ $time-backgrounds: (
     align-content: center;
     align-items: start;
     gap: 40px;
+  }
+
+  .resultArea {
+    min-height: 300px;
+  }
+
+  .controls {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: $color-surface;
+    border-radius: 25px;
+    padding: 20px;
   }
 }

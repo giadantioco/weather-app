@@ -1,8 +1,26 @@
+import cities from "@/data/cities-with-coords.json";
+export type City = (typeof cities)[number];
+
 export type WeatherData = {
   cityName: string;
   dateTime: string;
-  description: string;
+  isDay: boolean;
+  weatherCode: number;
   temperature: number;
   wind: number;
   humidity: number;
+};
+
+export type WeatherCodeInfo = {
+  day: { description: string; image: string };
+  night: { description: string; image: string };
+};
+
+export type CitySearchResult = {
+  id: number;
+  name: string;
+  latitude: number;
+  longitude: number;
+  admin1?: string;
+  country?: string;
 };

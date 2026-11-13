@@ -1,28 +1,20 @@
-@use "variables" as *;
+@use "mixins" as *;
 
-$field-height: 48px;
+.selectWrapper {
+  position: relative;
+}
 
-.container {
-  margin: 0 auto;
-  width: 80vw;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background-color: $color-surface;
-  border-radius: 25px;
-  padding: 20px;
+.spinner {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .citySelect,
-.geolocation,
-.cityInput {
-  height: $field-height;
-  border-radius: 25px;
-  padding: 0 20px;
-  border: none;
-  background-color: white;
-  font: inherit;
+.geolocation {
+  @include field;
 }
 
 .citySelect {
@@ -39,39 +31,4 @@ $field-height: 48px;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-}
-
-.formContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.cityInput {
-  flex: 1;
-  &::placeholder {
-    color: lightgray;
-  }
-}
-
-.submitBtn {
-  width: $field-height;
-  height: $field-height;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background-color: gray;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
