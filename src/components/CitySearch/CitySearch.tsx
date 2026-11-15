@@ -18,8 +18,19 @@ export default function CitySearch() {
     e.preventDefault();
     console.log(input);
 
+    const cleanInput = input.trim()
+    if (cleanInput.length < 3) {
+      setError("input must be at least three charachters");
+      setResults(results)
+      return
+        ;
+    }
+
+    setError(null)
+    setResults([])
+
     try {
-      const params = new URLSearchParams({ name: input, });
+      const params = new URLSearchParams({ name: cleanInput });
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
         setError("prease insert a valid input");
@@ -30,7 +41,7 @@ export default function CitySearch() {
       console.log(data)
 
     } catch {
-
+      setError("Network error. Please try later")
     }
 
   }
