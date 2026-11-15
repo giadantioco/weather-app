@@ -1,20 +1,38 @@
 import Image from "next/image";
 import style from "./CitySearch.module.scss";
 import { useState } from "react";
+import { CitySearchResult } from "@/types/weather";
 
 export default function CitySearch() {
-  // TODO 5a: stato query (che tipo? che valore iniziale?)
   const [input, setInput] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [results, setResults] = useState<CitySearchResult[]>([]);
 
-  // TODO 5a: handleSubmit(e) → niente ricaricamento → console.log(query)
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
     setInput(inputValue);
   }
 
-  function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(input);
+
+    try {
+      const params = new URLSearchParams({ name: input, });
+      const response = await fetch(`/api/geocode?${params}`);
+      if (!response.ok) {
+        setError("prease insert a valid input");
+        return;
+      }
+      const data = await response.json()
+      setResults(data)
+      console.log(data)
+
+    } catch {
+
+    }
+
   }
 
   return (
