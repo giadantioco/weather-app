@@ -7,13 +7,19 @@ export type LocateButtonProps = {
   onSelect: (selectedCity: City) => void;
 };
 
-function handlePosition() {
-  navigator.geolocation.getCurrentPosition((pos) => {
-    console.log(pos.coords.latitude, pos.coords.longitude);
-  });
-}
-
 export default function LocateButton({ onSelect }: LocateButtonProps) {
+  function handlePosition() {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const city: City = {
+        name: "your locaTION",
+        value: "geolocation",
+        lat: pos.coords.latitude,
+        lon: pos.coords.longitude,
+      };
+      onSelect(city);
+    });
+  }
+
   return (
     <button
       type="button"
