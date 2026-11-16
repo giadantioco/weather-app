@@ -8,7 +8,6 @@ export default function CitySearch() {
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<CitySearchResult[]>([]);
 
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
     setInput(inputValue);
@@ -18,52 +17,52 @@ export default function CitySearch() {
     e.preventDefault();
     console.log(input);
 
-    const cleanInput = input.trim()
+    const cleanInput = input.trim();
     if (cleanInput.length < 3) {
-      setError("input must be at least three charachters");
-      setResults([])
-      return
-        ;
+      setError("input must be at least 3 charachters long");
+      setResults([]);
+      return;
     }
 
-    setError(null)
-    setResults([])
+    setError(null);
+    setResults([]);
 
     try {
       const params = new URLSearchParams({ name: cleanInput });
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
-        const errorBody = await response.json()
-        setError(errorBody.error ?? "reserv error please insert at least three characters")
-        return
+        const errorBody = await response.json();
+        setError(errorBody.error ?? "Something went wrong, please try again");
+        return;
       }
-      const data = await response.json()
-      setResults(data)
-      console.log(data)
-
+      const data = await response.json();
+      setResults(data);
+      console.log(data);
     } catch {
-      setError("Network error. Please try later")
+      setError("Network error. Please try later");
     }
-
   }
 
   return (
-    <form className={style.formContainer} onSubmit={handleSubmit}>
-      <label htmlFor="city-input" className={style.visuallyHidden}>
-        Search a city
-      </label>
-      <input
-        type="text"
-        id="city-input"
-        className={style.cityInput}
-        placeholder="Please insert a city"
-        required
-        value={input}
-        onChange={handleChange}
-      />
-      <button type="submit" className={style.submitBtn}>
-        <Image src="/icons/search.svg" width={20} height={20} alt="Search" />
-      </button>
-    </form>
+    <>
+      <form className={style.formContainer} onSubmit={handleSubmit}>
+        <label htmlFor="city-input" className={style.visuallyHidden}>
+          Search a city
+        </label>
+        <input
+          type="text"
+          id="city-input"
+          className={style.cityInput}
+          placeholder="Please insert a city"
+          required
+          value={input}
+          onChange={handleChange}
+        />
+        <button type="submit" className={style.submitBtn}>
+          <Image src="/icons/search.svg" width={20} height={20} alt="Search" />
+        </button>
+      </form>
+      {error && <p>{error}</p>}
+    </>
   );
 }
