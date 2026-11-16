@@ -21,7 +21,7 @@ export default function CitySearch() {
     const cleanInput = input.trim()
     if (cleanInput.length < 3) {
       setError("input must be at least three charachters");
-      setResults(results)
+      setResults([])
       return
         ;
     }
@@ -33,8 +33,9 @@ export default function CitySearch() {
       const params = new URLSearchParams({ name: cleanInput });
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
-        setError("prease insert a valid input");
-        return;
+        const errorBody = await response.json()
+        setError(errorBody.error ?? "reserv error please insert at least three characters")
+        return
       }
       const data = await response.json()
       setResults(data)
