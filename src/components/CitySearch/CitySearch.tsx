@@ -1,9 +1,13 @@
 import Image from "next/image";
 import style from "./CitySearch.module.scss";
 import { useState } from "react";
-import { CitySearchResult } from "@/types/weather";
+import { CitySearchResult, City } from "@/types/weather";
 
-export default function CitySearch() {
+export type CitySearchProps = {
+  onSelect: (selectedCity: City) => void;
+};
+
+export default function CitySearch({ onSelect }: CitySearchProps) {
   const [input, setInput] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<CitySearchResult[]>([]);
@@ -45,6 +49,20 @@ export default function CitySearch() {
     }
   }
 
+  function handleCitySelect(result: CitySearchResult) {
+    const city: City = {
+      name: result.name,
+      value: result.id.toString(),
+      lat: result.latitude,
+      lon: result.longitude,
+    };
+
+    onSelect(city);
+
+    setResults([]);
+    setInput("");
+  }
+
   return (
     <>
       <form className={style.formContainer} onSubmit={handleSubmit}>
@@ -71,7 +89,9 @@ export default function CitySearch() {
       <ul>
         {results.map((city) => (
           <li key={city.id}>
-            {city.name}, {city.admin1}, {city.country}
+            <button type="button" onClick={() => handleCitySelect(city)}>
+              {city.name}, {city.admin1}, {city.country}
+            </button>
           </li>
         ))}
       </ul>

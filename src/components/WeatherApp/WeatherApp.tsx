@@ -65,7 +65,7 @@ export default function WeatherApp() {
         <main className={style.main}>
           <section className={style.controls}>
             <CitySelector onSelect={handleSelect} isLoading={loading} />
-            <CitySearch />
+            <CitySearch onSelect={handleSelect} />
           </section>
           <div className={style.resultArea} role="status">
             {error && <p>{error} </p>}
