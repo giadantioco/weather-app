@@ -16,7 +16,6 @@ export default function CitySearch() {
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(input);
 
     const cleanInput = input.trim();
     if (cleanInput.length < 3) {
@@ -39,7 +38,6 @@ export default function CitySearch() {
       }
       const data = await response.json();
       setResults(data);
-      console.log(data);
     } catch {
       setError("Network error. Please try later");
     } finally {
@@ -69,6 +67,14 @@ export default function CitySearch() {
       </form>
       {loading && <p>{"Searching"}</p>}
       {error && <p>{error}</p>}
+
+      <ul>
+        {results.map((city) => (
+          <li key={city.id}>
+            {city.name}, {city.admin1}, {city.country}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
