@@ -7,6 +7,7 @@ export default function CitySearch() {
   const [input, setInput] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<CitySearchResult[]>([]);
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
@@ -26,6 +27,7 @@ export default function CitySearch() {
 
     setError(null);
     setResults([]);
+    setLoading(true);
 
     try {
       const params = new URLSearchParams({ name: cleanInput });
@@ -40,6 +42,8 @@ export default function CitySearch() {
       console.log(data);
     } catch {
       setError("Network error. Please try later");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -58,10 +62,12 @@ export default function CitySearch() {
           value={input}
           onChange={handleChange}
         />
-        <button type="submit" className={style.submitBtn}>
+
+        <button type="submit" className={style.submitBtn} disabled={loading}>
           <Image src="/icons/search.svg" width={20} height={20} alt="Search" />
         </button>
       </form>
+      {loading && <p>{"Searching"}</p>}
       {error && <p>{error}</p>}
     </>
   );
