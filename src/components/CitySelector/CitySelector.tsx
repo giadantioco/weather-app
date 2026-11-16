@@ -40,10 +40,6 @@ export default function CitySelector({
         </select>
         {isLoading && <span className={style.spinner}>⏳</span>}
       </div>
-      <button type="button" className={style.geolocation}>
-        Use your location
-        <Image src="/icons/geolocation.svg" width={20} height={20} alt="" />
-      </button>
     </>
   );
 }

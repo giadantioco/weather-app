@@ -8,6 +8,7 @@ import style from "./WeatherApp.module.scss";
 import { getTimeSlot } from "@/lib/time/getTimeSlot";
 import { useState } from "react";
 import Footer from "../Footer/Footer";
+import LocateButton from "@/components/LocateButton/LocateButton";
 
 const timeSlot = getTimeSlot(15);
 
@@ -65,6 +66,7 @@ export default function WeatherApp() {
         <main className={style.main}>
           <section className={style.controls}>
             <CitySelector onSelect={handleSelect} isLoading={loading} />
+            <LocateButton onSelect={handleSelect} />
             <CitySearch onSelect={handleSelect} />
           </section>
           <div className={style.resultArea} role="status">
