@@ -18,22 +18,13 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
     setInput(inputValue);
   }
 
-  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const cleanInput = input.trim();
-    if (cleanInput.length < 3) {
-      setError("input must be at least 3 charachters long");
-      setResults([]);
-      return;
-    }
-
+  async function searchCities(query) {
     setError(null);
     setResults([]);
     setLoading(true);
 
     try {
-      const params = new URLSearchParams({ name: cleanInput });
+      const params = new URLSearchParams({ name: query });
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
         const errorBody = await response.json();
@@ -62,6 +53,20 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
     setResults([]);
     setInput("");
   }
+
+
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const cleanInput = input.trim();
+    if (cleanInput.length < 3) {
+      setError("input must be at least 3 charachters long");
+      setResults([]);
+      return;
+    }
+    searchCities(query)
+  }
+
 
   return (
     <>
