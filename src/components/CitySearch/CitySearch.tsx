@@ -1,6 +1,6 @@
 import Image from "next/image";
 import style from "./CitySearch.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CitySearchResult, City } from "@/types/weather";
 
 export type CitySearchProps = {
@@ -13,12 +13,26 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
   const [results, setResults] = useState<CitySearchResult[]>([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      const cleanInput = input.trim();
+      if (cleanInput.length < 3) {
+        setResults([]);
+        return;
+      }
+      searchCities(cleanInput);
+    }, 400);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [input]);
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
     setInput(inputValue);
   }
 
-  async function searchCities(query) {
+  async function searchCities(query: string) {
     setError(null);
     setResults([]);
     setLoading(true);
@@ -49,11 +63,9 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
     };
 
     onSelect(city);
-
     setResults([]);
     setInput("");
   }
-
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -64,9 +76,8 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
       setResults([]);
       return;
     }
-    searchCities(query)
+    searchCities(cleanInput);
   }
-
 
   return (
     <>
