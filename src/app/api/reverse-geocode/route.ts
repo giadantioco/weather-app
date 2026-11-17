@@ -48,20 +48,10 @@ export async function GET(request: Request) {
       );
     }
 
-    const data = await response.json();
+    const data = await response.json()
+    return Response.json(data);
 
-    const cityList: CitySearchResult[] = data.results ?? [];
 
-    const results = cityList.map((r) => ({
-      id: r.id,
-      name: r.name,
-      latitude: r.latitude,
-      longitude: r.longitude,
-      country: r.country,
-      admin1: r.admin1,
-    }));
-
-    return Response.json(results);
   } catch {
     return Response.json(
       { error: "impossible contact meteo service" },
