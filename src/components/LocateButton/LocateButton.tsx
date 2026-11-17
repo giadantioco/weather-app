@@ -17,16 +17,36 @@ export default function LocateButton({ onSelect }: LocateButtonProps) {
     setError(null);
 
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
+      async (pos) => {
+        const params = new URLSearchParams({
+          lat: pos.coords.latitude.toString(),
+          lon: pos.coords.longitude.toString(),
+        });
+        const url = `/api/reverse-geocode?${params}`;
+
+        let name = "Your location";
+
+        try {
+          const response = await fetch(url);
+          if (response.ok) {
+            const data = await response.json();
+            name = data.name;
+          }
+        } catch {
+          console.log("Reverse geocode failed, using fallback name");
+        } finally {
+          setLoading(false);
+        }
+
         const city: City = {
-          name: "your locaTION",
+          name,
           value: "geolocation",
           lat: pos.coords.latitude,
           lon: pos.coords.longitude,
         };
         onSelect(city);
-        setLoading(false);
       },
+
       (err) => {
         if (err.code === err.PERMISSION_DENIED) {
           setError(
@@ -35,11 +55,11 @@ export default function LocateButton({ onSelect }: LocateButtonProps) {
         } else if (err.code === err.POSITION_UNAVAILABLE) {
           setError("Sorry, position unavailable at the moment. Try later.");
         } else if (err.code === err.TIMEOUT) {
-          setError("Sorry, the request is taking too long");
+          setError("Sorry, the request is taking too long.");
         }
         setLoading(false);
-        console.log(err.code);
       },
+
       { timeout: 10000 },
     );
   }
@@ -50,6 +70,7 @@ export default function LocateButton({ onSelect }: LocateButtonProps) {
         type="button"
         className={style.geolocation}
         onClick={handlePosition}
+        disabled={loading}
       >
         Use your location
         <Image src="/icons/geolocation.svg" width={20} height={20} alt="" />

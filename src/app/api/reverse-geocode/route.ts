@@ -1,5 +1,3 @@
-import { CitySearchResult } from "@/types/weather";
-
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const lat = url.searchParams.get("lat");
@@ -7,7 +5,7 @@ export async function GET(request: Request) {
 
   if (!lat || !lon) {
     return Response.json(
-      { error: "lat and lon are required" },
+      { error: "Lat and lon are required" },
       { status: 400 },
     );
   }
@@ -16,14 +14,14 @@ export async function GET(request: Request) {
 
   if (Number.isNaN(numberLat)) {
     return Response.json(
-      { error: "latitude must be a number" },
+      { error: "Latitude must be a number" },
       { status: 400 },
     );
   }
 
   if (Number.isNaN(numberLon)) {
     return Response.json(
-      { error: "longitude must be a number" },
+      { error: "Longitude must be a number" },
       { status: 400 },
     );
   }
@@ -36,25 +34,33 @@ export async function GET(request: Request) {
   });
 
   try {
-    const nominatiumUrl = `https://nominatim.openstreetmap.org/reverse?${params}`;
-    console.log(nominatiumUrl);
-    const response = await fetch(nominatiumUrl, {
+    const nominatimUrl = `https://nominatim.openstreetmap.org/reverse?${params}`;
+    console.log(nominatimUrl);
+    const response = await fetch(nominatimUrl, {
       headers: { "User-Agent": "weather-app (giadantioco)" },
     });
     if (!response.ok) {
       return Response.json(
-        { error: "meteo service for selected city not available" },
+        { error: "Weather forecast for selected city not available" },
         { status: 503 },
       );
     }
 
-    const data = await response.json()
-    return Response.json(data);
+    const data = await response.json();
 
+    const name =
+      data.address?.city ?? data.address?.town ?? data.address?.village;
+    if (!name) {
+      return Response.json(
+        { error: "Please insert a valid city" },
+        { status: 400 },
+      );
+    }
 
+    return Response.json({ name: name });
   } catch {
     return Response.json(
-      { error: "impossible contact meteo service" },
+      { error: "Location service not available" },
       { status: 503 },
     );
   }
