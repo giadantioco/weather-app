@@ -1,6 +1,6 @@
 import Image from "next/image";
 import style from "./CitySearch.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CitySearchResult, City } from "@/types/weather";
 
 export type CitySearchProps = {
@@ -13,27 +13,32 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
   const [results, setResults] = useState<CitySearchResult[]>([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      const cleanInput = input.trim();
+      if (cleanInput.length < 3) {
+        setResults([]);
+        return;
+      }
+      searchCities(cleanInput);
+    }, 400);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [input]);
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = e.target.value;
     setInput(inputValue);
   }
 
-  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    const cleanInput = input.trim();
-    if (cleanInput.length < 3) {
-      setError("input must be at least 3 charachters long");
-      setResults([]);
-      return;
-    }
-
+  async function searchCities(query: string) {
     setError(null);
     setResults([]);
     setLoading(true);
 
     try {
-      const params = new URLSearchParams({ name: cleanInput });
+      const params = new URLSearchParams({ name: query });
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
         const errorBody = await response.json();
@@ -58,9 +63,20 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
     };
 
     onSelect(city);
-
     setResults([]);
     setInput("");
+  }
+
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const cleanInput = input.trim();
+    if (cleanInput.length < 3) {
+      setError("input must be at least 3 charachters long");
+      setResults([]);
+      return;
+    }
+    searchCities(cleanInput);
   }
 
   return (
@@ -69,32 +85,34 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
         <label htmlFor="city-input" className={style.visuallyHidden}>
           Search a city
         </label>
-        <input
-          type="text"
-          id="city-input"
-          className={style.cityInput}
-          placeholder="Please insert a city"
-          required
-          value={input}
-          onChange={handleChange}
-        />
-
+        <div className={style.searchWrapper}>
+          <input
+            type="text"
+            id="city-input"
+            className={`${style.cityInput} ${results.length > 0 ? style.cityInputOpen : ""}`}
+            placeholder="Please insert a city"
+            required
+            value={input}
+            onChange={handleChange}
+          />
+          {results.length > 0 && (
+            <ul className={style.resultsList}>
+              {results.map((city) => (
+                <li key={city.id}>
+                  <button type="button" onClick={() => handleCitySelect(city)}>
+                    {city.name}, {city.admin1}, {city.country}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         <button type="submit" className={style.submitBtn} disabled={loading}>
           <Image src="/icons/search.svg" width={20} height={20} alt="Search" />
         </button>
       </form>
       {loading && <p>{"Searching"}</p>}
       {error && <p>{error}</p>}
-
-      <ul>
-        {results.map((city) => (
-          <li key={city.id}>
-            <button type="button" onClick={() => handleCitySelect(city)}>
-              {city.name}, {city.admin1}, {city.country}
-            </button>
-          </li>
-        ))}
-      </ul>
     </>
   );
 }
