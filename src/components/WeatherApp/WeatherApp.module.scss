@@ -57,7 +57,7 @@ $time-backgrounds: (
 
   @include breakpoint-desktop {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-content: center;
     align-items: start;
@@ -77,6 +77,6 @@ $time-backgrounds: (
     gap: 20px;
     background-color: $color-surface;
     border-radius: 25px;
-    padding: 20px;
+    padding: 30px;
   }
 }
