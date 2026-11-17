@@ -11,9 +11,9 @@ export async function GET(request: Request) {
     );
   }
   const cleanName = name.trim();
-  if (cleanName.length >= 3) {
+  if (cleanName.length < 3) {
     return Response.json(
-      { error: "please insert at least three characters" },
+      { error: "Please insert at least three characters" },
       { status: 400 },
     );
   }
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
     const response = await fetch(openUrl);
     if (!response.ok) {
       return Response.json(
-        { error: "meteo service for selected city not available" },
+        { error: "Weather forecast for selected city not available" },
         { status: 503 },
       );
     }
@@ -52,7 +52,7 @@ export async function GET(request: Request) {
     return Response.json(results);
   } catch {
     return Response.json(
-      { error: "impossible contact meteo service" },
+      { error: "Impossible contact meteo service" },
       { status: 503 },
     );
   }

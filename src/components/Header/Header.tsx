@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className={style.header}>
       <h1 className={style.title}>
-        <Image src="/logo.png" alt="Weather App" width={75} height={35} />
+        <Image src="/logo.png" alt="Weather App" width={75} height={35} loading="eager" />
       </h1>
     </header>
   );
