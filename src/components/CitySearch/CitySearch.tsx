@@ -73,21 +73,23 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
           <input
             type="text"
             id="city-input"
-            className={style.cityInput}
+            className={`${style.cityInput} ${results.length > 0 ? style.cityInputOpen : ""}`}
             placeholder="Please insert a city"
             required
             value={input}
             onChange={handleChange}
           />
-          <ul className={style.resultsList}>
-            {results.map((city) => (
-              <li key={city.id}>
-                <button type="button" onClick={() => handleCitySelect(city)}>
-                  {city.name}, {city.admin1}, {city.country}
-                </button>
-              </li>
-            ))}
-          </ul>
+          {results.length > 0 && (
+            <ul className={style.resultsList}>
+              {results.map((city) => (
+                <li key={city.id}>
+                  <button type="button" onClick={() => handleCitySelect(city)}>
+                    {city.name}, {city.admin1}, {city.country}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <button type="submit" className={style.submitBtn} disabled={loading}>
           <Image src="/icons/search.svg" width={20} height={20} alt="Search" />

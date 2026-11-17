@@ -1,14 +1,15 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-.searchWrapper {
-  position: relative;
-}
-
 .formContainer {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
 }
 
 .cityInput {
@@ -18,6 +19,11 @@
   &::placeholder {
     color: lightgray;
   }
+}
+
+.cityInputOpen {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .submitBtn {
@@ -49,5 +55,17 @@
   left: 0;
   right: 0;
   z-index: 999;
-  background: white transparent;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  button {
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    padding: 0.3rem 0.3rem;
+    cursor: pointer;
+  }
 }
