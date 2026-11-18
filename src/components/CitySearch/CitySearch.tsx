@@ -5,11 +5,11 @@ import { CitySearchResult, City } from "@/types/weather";
 
 export type CitySearchProps = {
   onSelect: (selectedCity: City) => void;
+  onError: (message: string) => void;
 };
 
-export default function CitySearch({ onSelect }: CitySearchProps) {
+export default function CitySearch({ onSelect, onError }: CitySearchProps) {
   const [input, setInput] = useState("");
-  const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<CitySearchResult[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +33,6 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
   }
 
   async function searchCities(query: string) {
-    setError(null);
     setResults([]);
     setLoading(true);
 
@@ -42,13 +41,13 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
       const response = await fetch(`/api/geocode?${params}`);
       if (!response.ok) {
         const errorBody = await response.json();
-        setError(errorBody.error ?? "Something went wrong, please try again");
+        onError(errorBody.error ?? "Something went wrong, please try again");
         return;
       }
       const data = await response.json();
       setResults(data);
     } catch {
-      setError("Network error. Please try later");
+      onError("Network error. Please try later");
     } finally {
       setLoading(false);
     }
@@ -72,7 +71,7 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
 
     const cleanInput = input.trim();
     if (cleanInput.length < 3) {
-      setError("input must be at least 3 charachters long");
+      onError("input must be at least 3 charachters long");
       setResults([]);
       return;
     }
@@ -112,7 +111,6 @@ export default function CitySearch({ onSelect }: CitySearchProps) {
         </button>
       </form>
       {loading && <p>{"Searching"}</p>}
-      {error && <p>{error}</p>}
     </>
   );
 }
