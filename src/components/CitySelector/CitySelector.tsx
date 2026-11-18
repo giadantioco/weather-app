@@ -30,7 +30,7 @@ export default function CitySelector({
           onChange={handleChange}
         >
           <option value="" disabled hidden>
-            Please choose a city
+            Select a city in Milan
           </option>
           {cities.map((city) => (
             <option key={city.value} value={city.value}>

@@ -56,16 +56,19 @@ $time-backgrounds: (
   gap: 20px;
 
   @include breakpoint-desktop {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: row;
     justify-content: center;
-    align-content: center;
-    align-items: start;
-    gap: 40px;
+    align-items: center;
+    gap: 24px;
   }
 
   .resultArea {
     min-height: 300px;
+
+    &:empty {
+      position: absolute;
+      min-height: 0;
+    }
   }
 
   .controls {
@@ -78,5 +81,9 @@ $time-backgrounds: (
     background-color: $color-surface;
     border-radius: 25px;
     padding: 30px;
+
+    @include breakpoint-desktop {
+      margin: 0;
+    }
   }
 }

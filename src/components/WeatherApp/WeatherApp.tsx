@@ -6,17 +6,27 @@ import WeatherResult from "@/components/WeatherResult/WeatherResult";
 import { WeatherData, City } from "@/types/weather";
 import style from "./WeatherApp.module.scss";
 import { getTimeSlot } from "@/lib/time/getTimeSlot";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 import LocateButton from "@/components/LocateButton/LocateButton";
-
-const timeSlot = getTimeSlot(15);
+import Toast from "@/components/Toast/Toast";
+import { TimeSlot } from "@/types/timeslot";
 
 export default function WeatherApp() {
   const [city, setCity] = useState<City | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<WeatherData | null>(null);
+  const [timeSlot, setTimeSlot] = useState<TimeSlot | null>(null);
+
+  useEffect(() => {
+    function updateSlot() {
+      setTimeSlot(getTimeSlot(new Date().getHours()));
+    }
+    updateSlot();
+    const intervalId = setInterval(updateSlot, 60_000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   async function handleSelect(selectedCity: City) {
     setCity(selectedCity);
@@ -58,19 +68,19 @@ export default function WeatherApp() {
       setLoading(false);
     }
   }
-
+  console.log("error:", error);
   return (
-    <div className={`${style.background} ${style[timeSlot]}`}>
+    <div className={`${style.background} ${timeSlot ? style[timeSlot] : ""}`}>
       <div className={style.appContainer}>
         <Header />
         <main className={style.main}>
+          {error && <Toast message={error} onClose={() => setError(null)} />}
           <section className={style.controls}>
             <CitySelector onSelect={handleSelect} isLoading={loading} />
-            <LocateButton onSelect={handleSelect} />
-            <CitySearch onSelect={handleSelect} />
+            <LocateButton onSelect={handleSelect} onError={setError} />
+            <CitySearch onSelect={handleSelect} onError={setError} />
           </section>
           <div className={style.resultArea} role="status">
-            {error && <p>{error} </p>}
             {data && <WeatherResult weather={data} />}
           </div>
         </main>

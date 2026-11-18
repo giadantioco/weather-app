@@ -6,15 +6,14 @@ import { useState } from "react";
 
 export type LocateButtonProps = {
   onSelect: (selectedCity: City) => void;
+  onError: (message: string) => void;
 };
 
-export default function LocateButton({ onSelect }: LocateButtonProps) {
-  const [error, setError] = useState<string | null>(null);
+export default function LocateButton({ onSelect, onError }: LocateButtonProps) {
   const [loading, setLoading] = useState(false);
 
   function handlePosition() {
     setLoading(true);
-    setError(null);
 
     navigator.geolocation.getCurrentPosition(
       async (pos) => {
@@ -49,13 +48,11 @@ export default function LocateButton({ onSelect }: LocateButtonProps) {
 
       (err) => {
         if (err.code === err.PERMISSION_DENIED) {
-          setError(
-            "Location access denied. Allow it in your browser settings.",
-          );
+          onError("Location access denied. Allow it in your browser settings.");
         } else if (err.code === err.POSITION_UNAVAILABLE) {
-          setError("Sorry, position unavailable at the moment. Try later.");
+          onError("Sorry, position unavailable at the moment. Try later.");
         } else if (err.code === err.TIMEOUT) {
-          setError("Sorry, the request is taking too long.");
+          onError("Sorry, the request is taking too long.");
         }
         setLoading(false);
       },
@@ -75,7 +72,6 @@ export default function LocateButton({ onSelect }: LocateButtonProps) {
         Use your location
         <Image src="/icons/geolocation.svg" width={20} height={20} alt="" />
       </button>
-      {error && <p>{error}</p>}
     </>
   );
 }
